@@ -7,7 +7,7 @@
 void Engine::draw() {
     window.clear(Color::Black);
 
-    // Draw snake sections
+    // narise rep kace
     for (auto & s : snake) {
         window.draw(s.getShape());
     }
