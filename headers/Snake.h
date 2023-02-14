@@ -14,13 +14,13 @@ using namespace std;
 
 class Snake {
 private:
-    Vector2f position;
-    RectangleShape section;
+    Vector2f pozicija;
+    RectangleShape sekcija;
 public:
     explicit Snake(Vector2f startPosition);
 
-    Vector2f getPosition();
-    void setPosition(Vector2f newPosition);
+    Vector2f getPozicija();
+    void setPozicija(Vector2f newPosition);
 
     RectangleShape getShape();
 

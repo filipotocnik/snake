@@ -5,24 +5,24 @@
 #include "../headers/Snake.h"
 
 Snake::Snake(Vector2f startPosition) {
-    section.setSize(Vector2f(20, 20));
-    section.setFillColor(Color::Blue);
-    section.setPosition(startPosition);
-    position = startPosition;
+    sekcija.setSize(Vector2f(20, 20));
+    sekcija.setFillColor(Color::Blue);
+    sekcija.setPosition(startPosition);
+    pozicija = startPosition;
 }
 
-Vector2f Snake::getPosition() {
-    return position;
+Vector2f Snake::getPozicija() {
+    return pozicija;
 }
 
-void Snake::setPosition(Vector2f newPosition) {
-    position = newPosition;
+void Snake::setPozicija(Vector2f newPosition) {
+    pozicija = newPosition;
 }
 
 RectangleShape Snake::getShape() {
-    return section;
+    return sekcija;
 }
 
 void Snake::update() {
-    section.setPosition(position);
+    sekcija.setPosition(pozicija);
 }

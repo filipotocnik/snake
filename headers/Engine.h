@@ -9,6 +9,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <vector>
+// vector, pri katerem lahko vzamemo od zacetka ali konca
+#include <deque>
 
 using namespace sf;
 using namespace std;
@@ -16,23 +18,36 @@ using namespace std;
 class Engine {
 private:
     // Okno
-    Vector2f resolution;
+    Vector2f resolucija;
     RenderWindow window;
     const unsigned int fps = 60;
     static const Time TimePerFrame;
 
     vector<Snake> snake;
 
+    int smer;
+    // smer levo, desno, gor, dol
+    deque<int> smerQueue;
+    int hitrost;
+
+    Time casOdZadnjegaPremika;
+
 public:
     Engine();
 
+    enum Smer {gor, desno, levo, dol};
+
     void input();
+
+    void dodajSmer(int novaSmer);
+
+    void update();
 
     void draw();
 
     void newSnake();
 
-    void addSnake();
+    void dodajSnake();
 
     void run();
 };
