@@ -6,10 +6,13 @@
 #define SNAKE_ENGINE_H
 
 #include "../headers/Snake.h"
+#include "../headers/Apple.h"
 #include <SFML/Graphics.hpp>
+//oblika
 #include <SFML/Graphics/RectangleShape.hpp>
+//vector
 #include <vector>
-// vector, pri katerem lahko vzamemo od zacetka ali konca
+// podobno vectorju, pri katerem lahko vzamemo od zacetka ali konca
 #include <deque>
 
 using namespace sf;
@@ -17,25 +20,27 @@ using namespace std;
 
 class Engine {
 private:
-    // Okno
+    // Window
     Vector2f resolucija;
     RenderWindow window;
-    const unsigned int fps = 60;
+    const unsigned int FPS = 60;
     static const Time TimePerFrame;
 
     vector<Snake> snake;
 
-    int smer;
-    // smer levo, desno, gor, dol
-    deque<int> smerQueue;
+    int snakeSmer;
+    deque<int> smerQueue; // "cakalna vrsta" za ukaze s tipkovnice za smer
     int hitrost;
+    int sectionsToAdd; // koliko sekcij je treba dodati
+
+    Apple apple;
 
     Time casOdZadnjegaPremika;
 
 public:
-    Engine();
+    enum Smer { GOR, DOL, DESNO, LEVO}; // namesto stevilk so vrednosti poimenovane
 
-    enum Smer {gor, desno, levo, dol};
+    Engine();
 
     void input();
 
@@ -46,10 +51,13 @@ public:
     void draw();
 
     void newSnake();
+    void addSnakeSection();
 
-    void dodajSnake();
+    void moveApple();
 
+    // Glavni loop
     void run();
+
 };
 
 

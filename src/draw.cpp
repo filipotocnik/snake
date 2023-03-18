@@ -7,9 +7,12 @@
 void Engine::draw() {
     window.clear(Color::Black);
 
-    // narise rep kace
-    for (auto & s : snake) {
-        window.draw(s.getShape());
+    // narise jabolko
+    window.draw(apple.getSprite());
+
+    // narise sekcije kace
+    for (auto & i : snake) {
+        window.draw(i.getShape());
     }
 
     window.display();

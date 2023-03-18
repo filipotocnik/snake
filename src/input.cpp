@@ -9,41 +9,37 @@ void Engine::input() {
     Event event{};
 
     while (window.pollEvent(event)) {
-        // zapre okno
+        // Okno zaprto
         if (event.type == Event::Closed) {
             window.close();
         }
 
-        // tipkovnica input
+        // input s tipkovnice
         if (event.type == Event::KeyPressed) {
-            // zapre okno
-            // preveri event za escape key
+            // zapri program z ESC
             if (event.key.code == Keyboard::Escape) {
                 window.close();
             }
 
-            // smer
-            if(event.key.code == sf::Keyboard::Up) {
-                dodajSmer(Smer::gor);
-            }
-            else if (event.key.code == sf::Keyboard::Down) {
-                dodajSmer(Smer::dol);
-            }
-            else if (event.key.code == sf::Keyboard::Left) {
-                dodajSmer(Smer::levo);
-            }
-            else if (event.key.code == sf::Keyboard::Right) {
-                dodajSmer(Smer::desno);
+            // Smer
+            if(event.key.code == Keyboard::Up) {
+                dodajSmer(Smer::GOR);
+            } else if(event.key.code == Keyboard::Down) {
+                dodajSmer(Smer::DOL);
+            } else if(event.key.code == Keyboard::Right) {
+                dodajSmer(Smer::DESNO);
+            } else if(event.key.code == Keyboard::Left) {
+                dodajSmer(Smer::LEVO);
             }
         }
     }
 }
 
 void Engine::dodajSmer(int novaSmer) {
-    if (smerQueue.empty()) {
+    if(smerQueue.empty()) { // preveri, ce je queue prazen
         smerQueue.emplace_back(novaSmer);
-    } else {
-        if (smerQueue.back() != novaSmer) {
+    } else { // ce ni prazna
+        if(smerQueue.back() != novaSmer) { // preveri, da nova smer ni enaka prejsnji
             smerQueue.emplace_back(novaSmer);
         }
     }
