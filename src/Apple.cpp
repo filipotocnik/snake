@@ -6,15 +6,15 @@
 
 Apple::Apple() {
     Vector2f zacetnaPozicija(400, 300);
-    sprite.setSize(Vector2f(20, 20));
-    sprite.setFillColor(Color::Red);
-    sprite.setPosition(zacetnaPozicija);
+    appleOblika.setSize(Vector2f(20, 20));
+    appleOblika.setFillColor(Color::Red);
+    appleOblika.setPosition(zacetnaPozicija);
 }
 
 void Apple::setPozicija(Vector2f novaPozicija) {
-    sprite.setPosition(novaPozicija);
+    appleOblika.setPosition(novaPozicija);
 }
 
-RectangleShape Apple::getSprite() {
-    return sprite;
+RectangleShape Apple::getOblika() {
+    return appleOblika;
 }

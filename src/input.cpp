@@ -21,6 +21,18 @@ void Engine::input() {
                 window.close();
             }
 
+            // Pause
+            if(event.key.code == Keyboard::Space) {
+                pause();
+            }
+
+            // Nova igra
+            if(trenutniStatusIgre == StatusIgre::GAMEOVER) {
+                if(event.key.code == Keyboard::Enter) {
+                    zacniIgro();
+                }
+            }
+
             // Smer
             if(event.key.code == Keyboard::Up) {
                 dodajSmer(Smer::GOR);

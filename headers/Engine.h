@@ -7,6 +7,7 @@
 
 #include "../headers/Snake.h"
 #include "../headers/Apple.h"
+#include "../headers/Wall.h"
 #include <SFML/Graphics.hpp>
 //oblika
 #include <SFML/Graphics/RectangleShape.hpp>
@@ -14,6 +15,7 @@
 #include <vector>
 // podobno vectorju, pri katerem lahko vzamemo od zacetka ali konca
 #include <deque>
+#include <fstream>
 
 using namespace sf;
 using namespace std;
@@ -24,21 +26,42 @@ private:
     Vector2f resolucija;
     RenderWindow window;
     const unsigned int FPS = 60;
-    static const Time TimePerFrame;
 
     vector<Snake> snake;
 
     int snakeSmer;
     deque<int> smerQueue; // "cakalna vrsta" za ukaze s tipkovnice za smer
     int hitrost;
-    int sectionsToAdd; // koliko sekcij je treba dodati
+    int sekcijeZaDodati; // koliko sekcij je treba dodati
+    int applesEatenNaTemLevelu;
+    int applesEatenTotal;
+    int score;
+    const unsigned int applesZaNaslednjiLevel = 5;
 
     Apple apple;
 
+    vector<Wall> wallSekcije;
+    int trenutniLevel;
+    int maxLevels;
+    vector<String> levels;
+
+    Font font;
+    Text naslovText;
+    Text applesEatenText;
+    Text trenutniLevelText;
+    Text scoreText;
+    Text gameOverText;
+    Text pritisniEnterText;
+    Text pausedText;
+
     Time casOdZadnjegaPremika;
+
+    int trenutniStatusIgre;
+    int zadnjiStatusIgre; // za nadaljevanje igre po PAUSE
 
 public:
     enum Smer { GOR, DOL, DESNO, LEVO}; // namesto stevilk so vrednosti poimenovane
+    enum StatusIgre { RUNNING, PAUSED, GAMEOVER };
 
     Engine();
 
@@ -50,10 +73,22 @@ public:
 
     void draw();
 
-    void newSnake();
-    void addSnakeSection();
+    static void setupText(Text *textItem, const Font &font, const String &value, int size, Color color);
 
-    void moveApple();
+    void noviSnake();
+    void dodajSnakeSekcijo();
+
+    void premakniApple();
+
+    void preveriLevelDatoteke();
+
+    void loadLevel(int levelSt);
+
+    void zacniNaslednjiLevel();
+
+    void zacniIgro();
+
+    void pause();
 
     // Glavni loop
     void run();

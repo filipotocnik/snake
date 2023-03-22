@@ -15,16 +15,13 @@ using namespace std;
 class Snake {
 private:
     Vector2f pozicija;
-    RectangleShape section;
+    RectangleShape sekcija;
 public:
     explicit Snake(Vector2f zacetnaPozicija);
 
-    Vector2f getPozicija();
     void setPozicija(Vector2f novaPozicija);
 
-    RectangleShape getShape();
-
-    void update();
+    RectangleShape getOblika();
 };
 
 

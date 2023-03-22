@@ -12,14 +12,14 @@ using namespace sf;
 
 class Apple {
 private:
-    RectangleShape sprite;
+    RectangleShape appleOblika;
 
 public:
     Apple();
 
     void setPozicija(Vector2f novaPozicija);
 
-    RectangleShape getSprite();
+    RectangleShape getOblika();
 };
 
 

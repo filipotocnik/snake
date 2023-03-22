@@ -95,6 +95,13 @@ build CMakeFiles/snake.dir/src/Apple.cpp.o: CXX_COMPILER__snake_Debug /Users/fil
   OBJECT_DIR = CMakeFiles/snake.dir
   OBJECT_FILE_DIR = CMakeFiles/snake.dir/src
 
+build CMakeFiles/snake.dir/src/Wall.cpp.o: CXX_COMPILER__snake_Debug /Users/filippotocnik/CLionProjects/snake/src/Wall.cpp || cmake_object_order_depends_target_snake
+  DEP_FILE = CMakeFiles/snake.dir/src/Wall.cpp.o.d
+  FLAGS = -g -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++17
+  INCLUDES = -I/Users/filippotocnik/CLionProjects/snake/cmake-build-debug/_deps/sfml-src/include
+  OBJECT_DIR = CMakeFiles/snake.dir
+  OBJECT_FILE_DIR = CMakeFiles/snake.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target snake
@@ -103,7 +110,7 @@ build CMakeFiles/snake.dir/src/Apple.cpp.o: CXX_COMPILER__snake_Debug /Users/fil
 #############################################
 # Link the executable snake
 
-build snake: CXX_EXECUTABLE_LINKER__snake_Debug CMakeFiles/snake.dir/src/main.cpp.o CMakeFiles/snake.dir/src/Engine.cpp.o CMakeFiles/snake.dir/src/draw.cpp.o CMakeFiles/snake.dir/src/input.cpp.o CMakeFiles/snake.dir/src/Snake.cpp.o CMakeFiles/snake.dir/src/update.cpp.o CMakeFiles/snake.dir/src/Apple.cpp.o | _deps/sfml-build/lib/libsfml-graphics-d.2.5.1.dylib _deps/sfml-build/lib/libsfml-window-d.2.5.1.dylib _deps/sfml-build/lib/libsfml-system-d.2.5.1.dylib || _deps/sfml-build/lib/libsfml-graphics-d.dylib _deps/sfml-build/lib/libsfml-system-d.dylib _deps/sfml-build/lib/libsfml-window-d.dylib _deps/sfml-build/lib/libsfml-graphics-d.dylib _deps/sfml-build/lib/libsfml-window-d.dylib _deps/sfml-build/lib/libsfml-system-d.dylib
+build snake: CXX_EXECUTABLE_LINKER__snake_Debug CMakeFiles/snake.dir/src/main.cpp.o CMakeFiles/snake.dir/src/Engine.cpp.o CMakeFiles/snake.dir/src/draw.cpp.o CMakeFiles/snake.dir/src/input.cpp.o CMakeFiles/snake.dir/src/Snake.cpp.o CMakeFiles/snake.dir/src/update.cpp.o CMakeFiles/snake.dir/src/Apple.cpp.o CMakeFiles/snake.dir/src/Wall.cpp.o | _deps/sfml-build/lib/libsfml-graphics-d.2.5.1.dylib _deps/sfml-build/lib/libsfml-window-d.2.5.1.dylib _deps/sfml-build/lib/libsfml-system-d.2.5.1.dylib || _deps/sfml-build/lib/libsfml-graphics-d.dylib _deps/sfml-build/lib/libsfml-system-d.dylib _deps/sfml-build/lib/libsfml-window-d.dylib _deps/sfml-build/lib/libsfml-graphics-d.dylib _deps/sfml-build/lib/libsfml-window-d.dylib _deps/sfml-build/lib/libsfml-system-d.dylib
   FLAGS = -g -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
   LINK_LIBRARIES = -Wl,-rpath,/Users/filippotocnik/CLionProjects/snake/cmake-build-debug/_deps/sfml-build/lib  _deps/sfml-build/lib/libsfml-graphics-d.2.5.1.dylib  _deps/sfml-build/lib/libsfml-window-d.2.5.1.dylib  _deps/sfml-build/lib/libsfml-system-d.2.5.1.dylib
   OBJECT_DIR = CMakeFiles/snake.dir
