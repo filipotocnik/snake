@@ -1,4 +1,64 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/filippotocnik/CLionProjects/snake -B /Users/filippotocnik/CLionProjects/snake/cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/filippotocnik/CLionProjects/snake/cmake-build-debug
+[0/7] Performing update step for 'sfml-populate'
+From https://github.com/SFML/SFML
+   6aaf132d..2151ea5c  2.6.x                  -> origin/2.6.x
+ * [new branch]        bugfix/wgl_getfunction -> origin/bugfix/wgl_getfunction
+ * [new branch]        feature/graphics_tests -> origin/feature/graphics_tests
+ + c22ff70b...433956bc feature/mesa3d         -> origin/feature/mesa3d  (forced update)
+ + db492e90...fccc88be feature/prep_next_release -> origin/feature/prep_next_release  (forced update)
+ * [new branch]        feature/texture_tests  -> origin/feature/texture_tests
+ + 1ca88b1e...2d60a848 fix-opengl-es          -> origin/fix-opengl-es  (forced update)
+   6ca627ee..a8bc8cf8  master                 -> origin/master
+CMake Error at /Users/filippotocnik/CLionProjects/snake/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/tmp/sfml-populate-gitupdate.cmake:203 (message):
+  
+
+  Failed to rebase in:
+  '/Users/filippotocnik/CLionProjects/snake/cmake-build-debug/_deps/sfml-src'.
+
+
+  Output from the attempted rebase follows:
+
+Auto-merging doc/doxyfile.in
+
+  Auto-merging doc/header.html.in
+
+  CONFLICT (content): Merge conflict in doc/header.html.in
+
+  Auto-merging extlibs/headers/stb_image/stb_image.h
+
+  error: could not apply 33fde0cb...  4.  upload
+
+  hint: Resolve all conflicts manually, mark them as resolved with
+
+  hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+
+  hint: You can instead skip this commit: run "git rebase --skip".
+
+  hint: To abort and get back to the state before "git rebase", run "git
+  rebase --abort".
+
+  Could not apply 33fde0cb...  4.  upload
+
+  
+
+  
+
+  You will have to resolve the conflicts manually
+
+
+FAILED: sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update /Users/filippotocnik/CLionProjects/snake/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update 
+cd /Users/filippotocnik/CLionProjects/snake/cmake-build-debug/_deps/sfml-src && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P /Users/filippotocnik/CLionProjects/snake/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/tmp/sfml-populate-gitupdate.cmake
+ninja: build stopped: subcommand failed.
+
+CMake Error at /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/FetchContent.cmake:1604 (message):
+  Build step for sfml failed: 1
+Call Stack (most recent call first):
+  /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/FetchContent.cmake:1744:EVAL:2 (__FetchContent_directPopulate)
+  /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/FetchContent.cmake:1744 (cmake_language)
+  /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/FetchContent.cmake:1958 (FetchContent_Populate)
+  CMakeLists.txt:8 (FetchContent_MakeAvailable)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/filippotocnik/CLionProjects/snake/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/Users/filippotocnik/CLionProjects/snake/cmake-build-debug/CMakeFiles/CMakeError.log".

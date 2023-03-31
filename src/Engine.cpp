@@ -7,9 +7,11 @@
 Engine::Engine() {
     // nastavljanje in kreiranje okna
     resolucija = Vector2f(800, 600);
-    window.create(VideoMode(resolucija.x, resolucija.y), "Nibbles", Style::Default);
+    window.create(VideoMode(resolucija.x, resolucija.y), "Snake", Style::Default);
     window.setFramerateLimit(FPS);
     maxLevels = 0;
+    highScore = 0;
+    loadHighScore();
     preveriLevelDatoteke();
 
     zacniIgro();
@@ -72,6 +74,14 @@ void Engine::zacniIgro() {
     gameOverText.setPosition(Vector2f(200, 100));
     gameOverText.setOutlineColor(Color::Black);
     gameOverText.setOutlineThickness(2);
+
+    string highScoreTextString = "HIGH SCORE: " + to_string(highScore);
+
+    setupText(&highScoreText, font, highScoreTextString, 30, Color::Red);
+    // nevem zakaj tu textBounds ne dela, tak da sem sam izracunal x vrednost
+    highScoreText.setPosition(Vector2f(200, 300));
+    highScoreText.setOutlineColor(Color::Black);
+    highScoreText.setOutlineThickness(2);
 
     setupText(&pritisniEnterText, font, "Pritisni ENTER, da zacnes znova", 30, Color::Blue);
     // nevem zakaj tu textBounds ne dela, tak da sem sam izracunal x vrednost
@@ -221,6 +231,36 @@ void Engine::loadLevel(int levelSt) {
         }
     }
     level.close();
+}
+
+void Engine::loadHighScore() {
+    int highScoreDatoteka = 0;
+    ifstream datoteka("../datoteke/highScoreDatoteka.txt");
+    string vrstica;
+    if(datoteka.is_open()) {
+        while(getline(datoteka, vrstica)) {
+            highScoreDatoteka = stoi(vrstica);
+        }
+    }
+    if(highScoreDatoteka > this->highScore) {
+        this->highScore = highScoreDatoteka;
+    }
+}
+
+void Engine::saveHighScore(int stevilka) {
+    int highScoreDatoteka = 0;
+    ifstream inDatoteka("../datoteke/highScoreDatoteka.txt");
+    string vrstica;
+    if(inDatoteka.is_open()) {
+        while(getline(inDatoteka, vrstica)) {
+            highScoreDatoteka = stoi(vrstica);
+        }
+    }
+
+    if(highScoreDatoteka < this->highScore) {
+        ofstream outDatoteka("../datoteke/highScoreDatoteka.txt");
+        outDatoteka << this->highScore;
+    }
 }
 
 void Engine::run() {

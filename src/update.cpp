@@ -46,6 +46,10 @@ void Engine::update() {
 
         // posodobi score
         score+= snake.size() + (applesEatenTotal + 1); // + 1 ker je na zacetku 0 applesEaten
+        // preveri, ce je vecji kot highScore
+        if(score > highScore) {
+            highScore = score;
+        }
         scoreText.setString(to_string(score));
         FloatRect scoreTextBounds = scoreText.getLocalBounds(); // velikost texta
         scoreText.setPosition(Vector2f(resolucija.x - scoreTextBounds.width - 15, -6));
@@ -124,6 +128,7 @@ void Engine::update() {
             if(snake[0].getOblika().getGlobalBounds().intersects(i.getOblika().getGlobalBounds())) {
                 // game over
                 trenutniStatusIgre = StatusIgre::GAMEOVER;
+                saveHighScore(highScore);
             }
         }
 

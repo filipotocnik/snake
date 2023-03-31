@@ -30,6 +30,7 @@ void Engine::draw() {
     if(trenutniStatusIgre == StatusIgre::GAMEOVER) {
         window.draw(gameOverText);
         window.draw(pritisniEnterText);
+        window.draw(highScoreText);
     }
 
     // narisi paused

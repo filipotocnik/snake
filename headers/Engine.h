@@ -36,6 +36,7 @@ private:
     int applesEatenNaTemLevelu;
     int applesEatenTotal;
     int score;
+    int highScore;
     const unsigned int applesZaNaslednjiLevel = 5;
 
     Apple apple;
@@ -50,6 +51,7 @@ private:
     Text applesEatenText;
     Text trenutniLevelText;
     Text scoreText;
+    Text highScoreText;
     Text gameOverText;
     Text pritisniEnterText;
     Text pausedText;
@@ -83,6 +85,10 @@ public:
     void preveriLevelDatoteke();
 
     void loadLevel(int levelSt);
+
+    void loadHighScore();
+
+    void saveHighScore(int stevilka);
 
     void zacniNaslednjiLevel();
 
